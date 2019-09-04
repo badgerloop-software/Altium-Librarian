@@ -11,13 +11,14 @@ server.listen(PORT, () => {
 let currentLibrarian;
 
 server.get('/', (req, res) => {
-  res.json({message: "Pong"});
+  res.json({message: `${currentLibrarian}`});
 });
 
 server.get('/checkin', (req, res) => {
   let json = qs.parse(req);
   currentLibrarian = json.user_name;
   sendCheckIn(json.user_name);
+  console.log(currentLibrarian);
 });
 
 

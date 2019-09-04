@@ -1,0 +1,26 @@
+{
+  "name": "Altium-Librarian",
+  "version": "1.0.0",
+  "description": "A slack bot to keep track of the current Altium Librarian",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/badgerloop-software/Altium-Librarian.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/badgerloop-software/Altium-Librarian/issues"
+  },
+  "homepage": "https://github.com/badgerloop-software/Altium-Librarian#readme",
+  "dependencies": {
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "qs": "^6.8.0",
+    "request": "^2.88.0"
+  }
+}

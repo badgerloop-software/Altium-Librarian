@@ -12,6 +12,7 @@ server.get('/', (req, res) => {
 
 server.get('/checkin', (req, res) => {
   let json = qs.parse(req);
+  currentLibrarian = json.user_name;
   sendCheckIn(json.user_name);
 });
 

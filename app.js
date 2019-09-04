@@ -1,9 +1,13 @@
+require('dotenv').config();
 const express = require('express');
 const request = require('request');
 const qs = require('qs');
 const server = express();
-const webhookURL = process.env.URL
-
+const webhookURL = process.env.URL;
+const PORT = process.env.PORT;
+server.listen(PORT, () => {
+  console.log(`The Party has started on port ${PORT}`);
+});
 let currentLibrarian;
 
 server.get('/', (req, res) => {

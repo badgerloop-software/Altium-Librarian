@@ -19,7 +19,8 @@ server.post('/checkin', (req, res) => {
   currentLibrarian = json.user_name;
   sendCheckIn(json.user_name);
   console.log(currentLibrarian);
-  res.statusCode(200);
+  res.status(200);
+  res.send();
 });
 
 

@@ -25,13 +25,33 @@ server.post('/checkin', (req, res) => {
   sendCheckIn(json.body.response_url, json.body.user_name);
   console.log(currentLibrarian);
   res.status(200);
-  res.send();
+  res.type('json');
+  res.send({
+  	"response_type": "in_channel",
+  	"text": `${json.body.user_name} is now the librarian`
+  });
 });
 
 
+server.post('/checkout', (req, res) => {
+  let json = qs.parse(req);
+  console.log(json.body);
+  if (json.body.user_name !== currentLibrarian) {
+	  return res.status(200).send();
+  }
+ currentLibrarian = null;
+  res.status(200);
+  res.type('json');
+  res.send({
+	  "response_type": "in_channel",
+	  "text": `${json.body.user_name} is no longer the librarian`
+  }
+  );
+});
+
 function sendCheckIn(url,username) {
   let options = {
-    uri: webhookURL,
+    uri: url,
     method: 'POST',
     json: [
       {

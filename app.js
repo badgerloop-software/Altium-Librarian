@@ -14,7 +14,7 @@ server.get('/', (req, res) => {
   res.json({message: `${currentLibrarian}`});
 });
 
-server.get('/checkin', (req, res) => {
+server.post('/checkin', (req, res) => {
   let json = qs.parse(req);
   currentLibrarian = json.user_name;
   sendCheckIn(json.user_name);

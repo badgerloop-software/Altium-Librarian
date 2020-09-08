@@ -23,5 +23,6 @@
     "express": "^4.17.1",
     "qs": "^6.8.0",
     "request": "^2.88.0"
-  }
+  },
+  "nodemonConfig": {"ignore": ["data/*"]}
 }

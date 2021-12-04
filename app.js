@@ -28,7 +28,7 @@ server.post('/checkin', (req, res) => {
   if (librarians.length) {
       res.status(200);
       res.type('json');
-    return res.send(`${db.librarian.findOne().name} is already the librarian`);
+    return res.send({"response":`${db.librarian.findOne().name} is already the librarian`});
   } else {
   const currLibrarian = {name: `${json.body.user_name}`, current: true};
     db.librarian.save(currLibrarian);
@@ -37,7 +37,7 @@ server.post('/checkin', (req, res) => {
   res.type('json');
   res.send({
   	"response_type": "in_channel",
-  	"text": `${json.body.user_name} is now the librarian`
+  	"response": `${json.body.user_name} is now the librarian`
   });
   }
 });
@@ -53,7 +53,7 @@ server.post('/checkout', (req, res) => {
   res.type('json');
   res.send({
 	  "response_type": "in_channel",
-	  "text": `${json.body.user_name} is no longer the librarian`
+	  "response": `${json.body.user_name} is no longer the librarian`
   });
 } else {
     res.status(200);
@@ -74,14 +74,18 @@ server.post('/whois', (req, res) => {
         res.type('json');
         res.send({
             "response_type": "in_channel",
+<<<<<<< HEAD
             "text": `${db.librarian.findOne().name} is currently the librarian :whois:`
+=======
+            "response": `${db.librarian.findOne().name} is currently the librarian`
+>>>>>>> 8860af207f308d0cd2f9ef4ccba3b79407a1a872
         });
     } else {
         res.status(200);
         res.type('json');
         res.send({
             "response_type": "in_channel",
-            "text": 'No one is currently the librarian'
+            "response": 'No one is currently the librarian'
         });
     }
 });
@@ -95,7 +99,7 @@ function sendCheckIn(url,username) {
         "type": "section",
         "text": {
           "type": "mrkdwn",
-          "text": `${username} is now the librarian`
+          "response": `${username} is now the librarian`
         }
       }
     ]

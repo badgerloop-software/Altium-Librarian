@@ -74,11 +74,7 @@ server.post('/whois', (req, res) => {
         res.type('json');
         res.send({
             "response_type": "in_channel",
-<<<<<<< HEAD
-            "text": `${db.librarian.findOne().name} is currently the librarian :whois:`
-=======
             "response": `${db.librarian.findOne().name} is currently the librarian`
->>>>>>> 8860af207f308d0cd2f9ef4ccba3b79407a1a872
         });
     } else {
         res.status(200);

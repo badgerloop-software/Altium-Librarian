@@ -8,7 +8,7 @@ const server = express();
 const webhookURL = process.env.URL;
 const PORT = process.env.PORT;
 
-db.connect('./data', ['librarian']);
+db.connect('/apps/Altium-Librarian/data', ['librarian']);
 
 server.use(bodyParser.urlencoded({
   extended:false
